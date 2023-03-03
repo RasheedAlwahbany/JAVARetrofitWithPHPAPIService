@@ -59,7 +59,7 @@ echo json_encode(array("response"=>$response,"News"=>$news->News));
 }
 }else{?>
 <form action="" method="post">
-    <input type="hidden" name="Manager" value="add" id=""><br/>
+    <input type="hidden" name="Manager" value="all" id=""><br/>
     <input type="number" name="id" placeholder="ID" id=""><br/>
     <input type="text" name="name" placeholder="Name" id=""><br/>
     <input type="text" name="description" placeholder="Description" id=""><br/>

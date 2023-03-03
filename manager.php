@@ -2,7 +2,7 @@
 class NewsManager{
     public $manager,$id,$name,$description,$News,$con;
 
-    function __construct(){
+    public function __construct(){
         global $connection;
         $this->con=$connection;
     }
@@ -35,10 +35,10 @@ class NewsManager{
         return $this->AddParameters("add",$this->con->prepare("INSERT INTO `news` (`id`,`name`,`description`) VALUES (NULL,:name,:description)"));
     }
     public function updateNews(){
-        return $this->AddParameters("update",$this->con->prepare("UPDATE news SET name =:name, description=:description WHERE id=:id"));
+        return $this->AddParameters("update",$this->con->prepare("UPDATE `news` SET `name` =:name, `description`=:description WHERE `id`=:id"));
     }
     public function deleteNews(){
-        $query=$this->con->prepare("Delete FROM news WHERE id=:id");
+        $query=$this->con->prepare("DELETE FROM `news` WHERE `id`=:id");
         $query->bindParam(":id",$this->id);
         if($query->execute())
         return true;
@@ -46,11 +46,17 @@ class NewsManager{
         return false;
     }
     public function getNews(){
-        $query=$this->con->prepare("SELECT * FROM news");
+        $query=$this->con->prepare("SELECT * FROM `news`");
         $this->News=array();
-        while($row=$query->fetchObject())
-        $this->News[]=$row;
+        if($query->execute()){
+        while($row=$query->fetchObject()){
+            print_r($row);
+            $this->News[]=$row;
+        }
         return true;
+    }
+    
+    return false;
     }
 }
 ?>
