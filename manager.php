@@ -50,12 +50,11 @@ class NewsManager{
         $this->News=array();
         if($query->execute()){
         while($row=$query->fetchObject()){
-            print_r($row);
             $this->News[]=$row;
         }
         return true;
     }
-    
+
     return false;
     }
 }

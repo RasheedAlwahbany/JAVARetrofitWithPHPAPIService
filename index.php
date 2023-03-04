@@ -51,12 +51,14 @@ if(!empty($_POST['Manager'])){
             $response="Error: Data fetch failed";
 
     }
+
 echo json_encode(array("response"=>$response,"News"=>$news->News));
 }
 }else{
     echo json_encode(array("response"=>"Error: Operation failed","News"=>null));
 
 }
+header('Content-Type: application/json; charset=utf-8');
 }else{?>
 <form action="" method="post">
     <input type="hidden" name="Manager" value="all" id=""><br/>
