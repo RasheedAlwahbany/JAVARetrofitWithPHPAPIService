@@ -4,7 +4,7 @@ if($connection){
 require_once("manager.php");
 if(!empty($_POST)){
 if($_SERVER['REQUEST_METHOD']=="POST"){
-    $news=new NewsManager();
+    $news=new NewsManager($connection);
     $response="";
 if(!empty($_POST['Manager'])){
     $news->manager = $_POST['Manager'];

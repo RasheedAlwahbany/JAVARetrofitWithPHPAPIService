@@ -2,8 +2,7 @@
 class NewsManager{
     public $manager,$id,$name,$description,$News,$con;
 
-    public function __construct(){
-        global $connection;
+    public function __construct($connection){
         $this->con=$connection;
     }
     
